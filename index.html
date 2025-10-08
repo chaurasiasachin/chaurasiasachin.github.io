@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sachin Chaurasia Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --dark-bg: #121212;
+    --light-bg: #f5f5f5;
+    --dark-text: #ffffff;
+    --light-text: #121212;
+    --accent: #00bfa5;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; scroll-behavior: smooth;}
+body.dark { background-color: var(--dark-bg); color: var(--dark-text);}
+body.light { background-color: var(--light-bg); color: var(--light-text);}
+a { color: inherit; text-decoration: none; }
+header { position: sticky; top:0; display:flex; justify-content: space-between; align-items:center; padding: 1rem 2rem; background: rgba(0,0,0,0.7); z-index: 100;}
+header .toggle { cursor:pointer; padding:0.5rem 1rem; border-radius:5px; background: var(--accent); color:#fff; font-weight:bold;}
+section { padding:5rem 2rem; opacity:0; transform: translateY(50px); transition: all 0.8s ease;}
+section.visible { opacity:1; transform: translateY(0);}
+.hero { display:flex; flex-direction:column; align-items:center; justify-content:center; height:100vh; text-align:center;}
+.hero h1 { font-size:2rem; margin-bottom:1rem;}
+.hero .typing { color: var(--accent); font-weight:bold;}
+section h2 { font-size:1.8rem; margin-bottom:2rem; text-align:center; position:relative;}
+section h2::after { content:""; width:50px; height:3px; background:var(--accent); display:block; margin:0.5rem auto; border-radius:2px;}
+.profile-pic { width:150px; height:150px; background:#ccc; border-radius:50%; margin:auto;}
+.timeline { display:flex; flex-direction: column; gap:2rem; position:relative;}
+.timeline-item { position:relative; padding-left:2rem; border-left:3px solid var(--accent); opacity:0; transform: translateX(-50px); transition: all 0.6s ease;}
+.timeline-item.visible { opacity:1; transform: translateX(0);}
+.timeline-item h3 { margin-bottom:0.3rem;}
+.skills { display:grid; grid-template-columns: repeat(auto-fit, minmax(100px,1fr)); gap:1.5rem; text-align:center;}
+.skills .skill { display:flex; flex-direction:column; align-items:center; transition: transform 0.3s;}
+.skills .skill img { width:60px; height:60px; transition: transform 0.3s;}
+.skills .skill:hover { transform: translateY(-10px) scale(1.1);}
+.projects { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:2rem;}
+.project-card { background: rgba(0,0,0,0.6); padding:1rem; border-radius:10px; position:relative; overflow:hidden; cursor:pointer; transition: transform 0.3s;}
+.project-card:hover { transform: translateY(-5px);}
+.project-card::before { content:""; position:absolute; inset:0; background: var(--accent); opacity:0; transition: opacity 0.3s;}
+.project-card:hover::before { opacity:0.1;}
+.project-card a { position:relative; z-index:1;}
+.certifications { display:flex; flex-wrap:wrap; gap:1rem; justify-content:center;}
+.certifications img { width:80px; height:80px;}
+.contact { display:flex; justify-content:center; gap:2rem; font-size:1.5rem;}
+.cv-btn { display:block; margin:2rem auto; padding:0.8rem 1.5rem; background: var(--accent); color:#fff; border:none; border-radius:5px; cursor:pointer; transition: transform 0.3s;}
+.cv-btn:hover { transform: scale(1.05);}
+body.light .timeline-item { border-left-color: var(--accent);}
+body.light .project-card { background: rgba(200,200,200,0.6);}
+body.light .skills .skill:hover { transform: translateY(-10px) scale(1.1);}
+body.light .cv-btn { background: var(--accent);}
+@media(max-width:768px){section {padding:3rem 1rem;}}
+</style>
+</head>
+<body class="dark">
+
+<header>
+  <a href="#hero">Sachin Chaurasia</a>
+  <div class="toggle" onclick="toggleTheme()">Toggle Theme</div>
+</header>
+
+<section id="hero" class="hero visible">
+  <div class="profile-pic"></div>
+  <h1>I'm Sachin Chaurasia — <span class="typing"></span></h1>
+  <button class="cv-btn">Download CV</button>
+</section>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p style="max-width:600px; margin:auto; text-align:center;">C++ developer with experience in Qt, Linux, Python, and Embedded Systems. Passionate about building efficient software solutions and mastering system design.</p>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>GSLab</h3>
+      <p>Embedded software & C++ development.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>Amdocs</h3>
+      <p>Software engineering & system optimization.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>Harman</h3>
+      <p>Automotive middleware & Qt applications.</p>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <p style="text-align:center;">LPU — CGPA: 8.5, Year: 2018</p>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"><p>C++</p></div>
+    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/qt/qt-original.svg"><p>Qt</p></div>
+    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"><p>Python</p></div>
+    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"><p>Linux</p></div>
+    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"><p>Git</p></div>
+    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/datawizard/datawizard-original.svg"><p>DS & Algo</p></div>
+    <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/designpatterns/designpatterns-original.svg"><p>Design Patterns</p></div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="project-card">
+      <h3>Obstacle Intelligence</h3>
+      <p>Qt & OpenCV based trajectory analysis.</p>
+      <a href="https://github.com/chaurasiasachin" target="_blank">GitHub</a>
+    </div>
+    <div class="project-card">
+      <h3>Virtual Mirror System</h3>
+      <p>Embedded C++ application with MQTT & QML UI.</p>
+      <a href="https://github.com/chaurasiasachin" target="_blank">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <h2>Certifications & Achievements</h2>
+  <div class="certifications">
+    <img src="https://img.shields.io/badge/DSA-Certified-blue">
+    <img src="https://img.shields.io/badge/C++-Certified-red">
+    <img src="https://img.shields.io/badge/Hackerrank-Solved-green">
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Me</h2>
+  <div class="contact">
+    <a href="mailto:sachinchaurasia888@gmail.com">✉️</a>
+    <a href="https://www.linkedin.com/in/chaurasiasachin/" target="_blank">🔗</a>
+    <a href="https://leetcode.com/chaurasiasachin/" target="_blank">💻</a>
+    <a href="https://github.com/chaurasiasachin" target="_blank">🐙</a>
+  </div>
+</section>
+
+<script>
+// Typing animation
+const texts = ["C++ Developer", "Qt | Linux", "Python | Embedded Systems"];
+let count = 0, index = 0, currentText = "", letter = "";
+(function type(){
+  if(count === texts.length) count=0;
+  currentText = texts[count];
+  letter = currentText.slice(0, ++index);
+  document.querySelector(".typing").textContent = letter;
+  if(letter.length === currentText.length){
+    count++;
+    index=0;
+    setTimeout(type,1000);
+  } else{
+    setTimeout(type,150);
+  }
+})();
+
+// Dark/Light toggle
+function toggleTheme(){
+  document.body.classList.toggle("dark");
+  document.body.classList.toggle("light");
+}
+
+// Scroll animations
+const sections = document.querySelectorAll("section");
+const timelineItems = document.querySelectorAll(".timeline-item");
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+    }
+  });
+},{threshold:0.2});
+
+sections.forEach(section => observer.observe(section));
+timelineItems.forEach(item => observer.observe(item));
+</script>
+
+</body>
+</html>
